@@ -1,0 +1,86 @@
+
+
+
+<div class="container body">
+
+    <div class="row ">
+     
+ 
+     <div class="col-md-6 ">
+ 
+       <h1 class="text-primary">  Welcome To Market Hub Admin User . Login To Manage Your Markets</h1>
+ <p>
+   
+ </p>
+
+
+ <img src="../../../assets/Image/1.jpg" width="100%" class="img-responsive img-rounded">
+       </div>
+ 
+       
+       
+         <div class="col-md-4 card  bg-light">
+ 
+           <div *ngIf="Loading" class="alert alert-success">
+            Loading...........
+           </div>
+              <form class="card-body" [formGroup]="FormData" (ngSubmit) = "ProcessForm(FormData.value)"> 
+           <h3 class="text-primary" style="margin-bottom: 50px;"> Admin User   Login </h3>
+           <div *ngIf="InvalidUser" class="alert alert-danger">
+             Invalid Email/Password Combination 
+           </div>
+             
+ 
+             <div class="form-group">
+              <label> Email:</label>
+ 
+               <input type="text" class="form-control" placeholder="Enter Your Email" formControlName="Email">
+                 </div>
+       <div *ngIf="Submitted && f.Email.errors " class="alert-sm alert-danger">
+ <span  *ngIf = " f.Email.errors.required ">  Email is Required</span>
+ <span  *ngIf = " f.Email.errors.pattern ">  Email is Not Valid</span>
+ 
+                </div>
+ 
+                <div class="form-group">
+ 
+                 <label> Password:</label>
+ 
+                 <input type="password" class="form-control" placeholder="Enter Your Password" formControlName="Password">
+                     </div>
+ 
+                     <div *ngIf="Submitted && f.Password.errors " class="alert-sm alert-danger">
+                       <span  *ngIf = " f.Password.errors.required ">  Password is Required</span>
+ 
+                       <span  *ngIf = " f.Password.errors.minlength ">  Password Must be more than six characters</span>
+                                      </div>
+
+                   <div class="form-group">
+
+                    <label> Remember Me ? </label>
+  <input type="checkbox" name="Rememberme">
+
+                   </div>                   
+                 <div class="form-group">
+    <input type="submit" class="btn btn-primary" value="Login To Account">
+     
+                    </div>
+              </form>
+ 
+                 
+ 
+          <div style="padding-bottom: 20px;">
+ 
+         Don't Have Account Yet ?  <a [routerLink] ="['User/CreateAccount']" >  <button class="btn btn-success btn-block"> Please Register Here</button> </a>  
+          </div>
+        
+        
+        
+                 </div>
+ 
+               
+   </div>
+ 
+
+ 
+ 

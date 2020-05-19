@@ -9,28 +9,38 @@ import { AppComponent } from './app.component';
 import { AuthenticationComponent } from './Users/authentication/authentication.component';
 import { CreateAccountComponent } from './Users/create-account/create-account.component';
 import { from } from 'rxjs';
-import { AdminAuthenticationComponent } from './Admin/admin-authentication/admin-authentication.component';
+
 import { HeaderComponent } from './Layout/header/header.component';
 import { FooterComponent } from './Layout/footer/footer.component';
 import { NavigationbarComponent } from './Layout/navigationbar/navigationbar.component';
 import { SliderComponent } from './Layout/slider/slider.component';
 import { HomeComponent } from './Users/home/home.component';
-import { AdminAuthComponent } from './Admin/admin-auth/admin-auth.component';
+
 import { AdminHomeComponent } from './Admin/admin-home/admin-home.component';
+
+import { AddFoodcatergoryComponent } from './Admin/add-foodcatergory/add-foodcatergory.component';
+import { CreateMarketComponent } from './Admin/create-market/create-market.component';
+import { AdminAuthenicationComponent } from './Admin/admin-authenication/admin-authenication.component';
+import { ManageAccountComponent } from './Admin/manage-account/manage-account.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthenticationComponent,
     CreateAccountComponent,
-    AdminAuthenticationComponent,
+
     HeaderComponent,
     FooterComponent,
     NavigationbarComponent,
     SliderComponent,
     HomeComponent,
-    AdminAuthComponent,
-    AdminHomeComponent
+ 
+    AdminHomeComponent,
+   
+    AddFoodcatergoryComponent,
+    CreateMarketComponent,
+    AdminAuthenicationComponent,
+    ManageAccountComponent
   ],
   imports: [
     BrowserModule,

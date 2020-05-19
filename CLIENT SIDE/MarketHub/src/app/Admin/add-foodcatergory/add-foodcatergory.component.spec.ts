@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminAuthComponent } from './admin-auth.component';
+import { AddFoodcatergoryComponent } from './add-foodcatergory.component';
 
-describe('AdminAuthComponent', () => {
-  let component: AdminAuthComponent;
-  let fixture: ComponentFixture<AdminAuthComponent>;
+describe('AddFoodcatergoryComponent', () => {
+  let component: AddFoodcatergoryComponent;
+  let fixture: ComponentFixture<AddFoodcatergoryComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminAuthComponent ]
+      declarations: [ AddFoodcatergoryComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminAuthComponent);
+    fixture = TestBed.createComponent(AddFoodcatergoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

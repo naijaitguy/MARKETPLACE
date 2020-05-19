@@ -65,6 +65,28 @@ return this.Http.post<UserModel>(environment.ApiUrl + 'Identity/CreateAccount', 
   }
 
 
+  
+  AuthenticateAdmin(Email: any , Password: any)
+  {
+   return this.Http.post<any>( environment.ApiUrl  + 'Identity/AuthenticateAdmin ', { Email, Password})
+   // tslint:disable-next-line: no-shadowed-variable
+   .pipe(map(TaxRegModel => {
+  if (TaxRegModel && TaxRegModel.Token)
+
+  {
+    this.saveToke(TaxRegModel.Token);
+    localStorage.setItem('CurrentUser', JSON.stringify(TaxRegModel));
+    return TaxRegModel;
+
+  }
+
+   } ),
+    catchError(this.errorHandle) );
+
+  }
+
+
+
      // tslint:disable-next-line: no-shadowed-variable
      UpdateUser(id: number, TaxRegModel: any): Observable<UserModel>
   {
