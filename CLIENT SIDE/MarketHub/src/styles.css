@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.body{ margin-top: 80px;}
+
+body {
+    font-family: Gill Sans, Gill Sans MT, Myriad Pro, DejaVu Sans Condensed, Helvetica, Arial," sans-serif";
+      font-size: 18px;
+    
+  }

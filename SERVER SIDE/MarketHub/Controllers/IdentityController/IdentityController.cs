@@ -12,6 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using MarketHub._Helper;
 using MarketHub.Data.Entity;
 using MarketHub.Models;
+using MarketHub.Data.DAL;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -27,13 +28,14 @@ namespace MarketHub.Controllers.IdentityController
 
         private readonly SignInManager<User> SignManager;
         private readonly UserManager<User> UserManager;
+        private IUnitOfWork UnitofWork;
 
 
-        public IdentityController(SignInManager<User> signInManager, UserManager<User> userManager ) 
+        public IdentityController(SignInManager<User> signInManager, UserManager<User> userManager, IUnitOfWork work ) 
         
         {
 
-
+            this.UnitofWork = work;
             this.UserManager = userManager; this.SignManager = signInManager;
         }
 
@@ -261,14 +263,14 @@ namespace MarketHub.Controllers.IdentityController
 
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+       
         [Route("FindUserName")]
         public async Task<ActionResult> PostFindUserName([FromBody] RegisterUser Model)
         {
 
             var myUser = await this.UserManager.FindByNameAsync(Model.UserName);
 
-            if (User != null) { return Ok(myUser.UserName); } else { return NotFound(new { Response = "Email Not Foumd " }); }
+            if (myUser != null) { return Ok(myUser.UserName); } else { return NotFound(new { Response = "Email Not Foumd " }); }
 
         }
 
@@ -279,18 +281,11 @@ namespace MarketHub.Controllers.IdentityController
         public async Task<ActionResult> PostFindPhone([FromBody] RegisterUser Model)
         {
 
+            var Phone = await this.UnitofWork.User_Repo.FindUserPhone(Model.PhoneNumber);
 
-            var User = await this.UserManager.FindByEmailAsync(Model.Email);
-
-            if (User != null) {
-
-                var Phone = await this.UserManager.GetPhoneNumberAsync(User);
-
-                if (Phone != null) { return Ok(); } else { return NotFound(new { Response = "Email Not Foumd " }); }
+                if (Phone != null) { return Ok(); } else { return NotFound(new { Response = "Phone Not Foumd " }); }
 
             
-            } else { return NotFound(new { Response = "Email Not Foumd " }); }
-
         }
 
       

@@ -15,7 +15,7 @@ namespace MarketHub.Data.DAL
 
         public Task<T> GetById(string id);
 
-
+        public Task<User> FindUserPhone(string Phone);
         public Task<User> FindUserEmail(string UserEmail);
         /*
         public Task<Market> FindTaxApplicationEmail(string UserEmail);

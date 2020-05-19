@@ -44,6 +44,14 @@ namespace MarketHub.Data.DAL
 
         }
 
+        public async Task<User> FindUserPhone(string Phone)
+        {
+
+            return await this.Context.Users.FirstOrDefaultAsync(m => m.PhoneNumber == Phone);
+
+
+        }
+
         /*
         public async Task<Market> FindTaxApplicationEmail(string UserEmail)
         {
@@ -53,13 +61,7 @@ namespace MarketHub.Data.DAL
 
         }
 
-        public async Task<Market> FindTaxApplicationBVN(string Bvn)
-        {
-
-            return await this.Context.TaxApplications.FirstOrDefaultAsync(m => m.Bvn == Bvn);
-
-
-        }
+       
 
 
         public async Task<Market> FindTaxApplicationTin(string Tin)

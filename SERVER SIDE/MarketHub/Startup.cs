@@ -200,7 +200,7 @@ namespace MarketHub
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Identity}/{action=Authentication}/{id?}");
+                    pattern: "{controller=Api/Identity}/{action=Authenticate}/{id?}");
               //  endpoints.MapRazorPages();
             });
 
