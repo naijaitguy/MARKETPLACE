@@ -22,6 +22,17 @@ import { AddFoodcatergoryComponent } from './Admin/add-foodcatergory/add-foodcat
 import { CreateMarketComponent } from './Admin/create-market/create-market.component';
 import { AdminAuthenicationComponent } from './Admin/admin-authenication/admin-authenication.component';
 import { ManageAccountComponent } from './Admin/manage-account/manage-account.component';
+import { EditMarketComponent } from './Admin/edit-market/edit-market.component';
+import { ViewMarketComponent } from './Admin/view-market/view-market.component';
+import { AdminProfileComponent } from './Admin/admin-profile/admin-profile.component';
+import { ContactComponent } from './Admin/contact/contact.component';
+import { AboutComponent } from './Admin/about/about.component';
+import { UploadComponent } from './Admin/upload/upload.component';
+import { Upload1Component } from './Admin/New folder/upload1/upload1.component';
+import { Upload2Component } from './Admin/New folder/upload2/upload2.component';
+import { Upload3Component } from './Admin/New folder/upload3/upload3.component';
+import { MarketService } from './Services/market.service';
+import { AuthenticationServicesService } from './Services/authentication-services.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +51,16 @@ import { ManageAccountComponent } from './Admin/manage-account/manage-account.co
     AddFoodcatergoryComponent,
     CreateMarketComponent,
     AdminAuthenicationComponent,
-    ManageAccountComponent
+    ManageAccountComponent,
+    EditMarketComponent,
+    ViewMarketComponent,
+    AdminProfileComponent,
+    ContactComponent,
+    AboutComponent,
+    UploadComponent,
+    Upload1Component,
+    Upload2Component,
+    Upload3Component
   ],
   imports: [
     BrowserModule,
@@ -49,7 +69,7 @@ import { ManageAccountComponent } from './Admin/manage-account/manage-account.co
     RouterModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ MarketService, AuthenticationServicesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

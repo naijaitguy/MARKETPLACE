@@ -41,13 +41,19 @@ namespace MarketHub.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Catergory")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Discription")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("FoodCatId")
-                        .HasColumnType("int");
+                    b.Property<string>("Image1")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
+                    b.Property<string>("Image2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image3")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
@@ -56,9 +62,12 @@ namespace MarketHub.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("MarketId");
 
-                    b.HasIndex("FoodCatId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Markets");
                 });
@@ -267,11 +276,9 @@ namespace MarketHub.Data.Migrations
 
             modelBuilder.Entity("MarketHub.Data.Entity.Market", b =>
                 {
-                    b.HasOne("MarketHub.Data.Entity.FoodCategory", "FoodCategory")
+                    b.HasOne("MarketHub.Data.Entity.User", "User")
                         .WithMany()
-                        .HasForeignKey("FoodCatId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -73,11 +73,13 @@ namespace MarketHub.Data.DAL
         }
         */
 
-        public async Task Add(T model)
+        public async Task<bool> Add(T model)
         {
-
-             await this.Entity.AddAsync(model);
-
+            try
+            {
+                await this.Entity.AddAsync(model); return true;
+            }
+            catch(Exception) { return false; }
 
         }
 

@@ -17,14 +17,19 @@ namespace MarketHub.Data.Entity
         public string Name { get; set; }
 
         public string Discription { get; set; }
-        public string Image { get; set; }
+        public string Image1 { get; set; }
+        public string Image2 { get; set; }
+        public string Image3 { get; set; }
 
         public string Location { get; set; }
 
-        public int FoodCatId { get; set; }
+        public string UserId { get; set; }
 
-        [ForeignKey("FoodCatId")]
-        public virtual FoodCategory FoodCategory { get; set; }
+
+        public string Catergory { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual User User { get; set; }
 
     }
 }

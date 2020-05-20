@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using MarketHub._Helper;
 using MarketHub.Data.DAL;
 using MarketHub.Data.Entity;
+using MarketHub.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -58,8 +59,10 @@ namespace MarketHub.Controllers.UsersController
 
         // POST api/<controller>
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody] RegisterUser model
+            )
         {
+           
         }
 
         // PUT api/<controller>/5

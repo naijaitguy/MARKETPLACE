@@ -23,6 +23,6 @@ namespace MarketHub.Data.DAL
         public Task<Market> FindTaxApplicationTin(string Tin);
         public  Task<Market> FindTaxApplicationBVN(string Bvn);
         */
-        public Task Add(T model);
+        public Task<bool> Add(T model);
     }
 }

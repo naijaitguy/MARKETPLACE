@@ -9,13 +9,13 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a [routerLink]="['Admin/Manageaccount']" class="nav-link active" > My Profile </a>
+            <a [routerLink]="['/Admin/Profile']" class="nav-link active" > My Profile </a>
           </li>
           <li class="nav-item">
-            <a [routerLink]="['']" class="nav-link active">  Contact Us </a>
+            <a [routerLink]="['/Contact']" class="nav-link active">  Contact Us </a>
           </li>
           <li class="nav-item">
-            <a [routerLink]="['']" class="nav-link active">About Us</a>
+            <a [routerLink]="['/About']" class="nav-link active">About Us</a>
           </li>
         </ul>
       
@@ -29,7 +29,7 @@
         </ul>
         <span  class="navbar-right " style="color: #ffffff;">
   
-          <i class='fa fa-user-circle' style='font-size:26px'></i>    Welcome Back Admin User - Babs        <a (click)="LogOut()" class="nav-link btn " style="text-decoration: none; color: #ffffff;">| Log Off <i class='fas fa-sign-out-alt' style='font-size:16px'></i> </a>
+          <i class='fa fa-user-circle' style='font-size:26px'></i>    Welcome Back Admin User - Babs        <a (click)="LogOut()" class="nav-link btn " style="text-decoration: none; color: #ffffff;">| Log Off <i class='fa fa-sign-out' style='font-size:16px'></i> </a>
               
         </span>	
       </div>
