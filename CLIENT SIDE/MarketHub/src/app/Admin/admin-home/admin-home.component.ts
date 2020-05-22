@@ -11,19 +11,26 @@ import { MarketModel } from 'src/app/Model/MarketModel';
 })
 export class AdminHomeComponent implements OnInit {
   constructor(private fb: FormBuilder, private Route: Router, private Services: MarketService) { }
-
+DeleteMgs = false;
   public Markets:  MarketModel[];
 
   ngOnInit(): void {
 
     this.Services.GetAllMarket().subscribe(data => { 
-    this.Markets = data; console.log(data);}
+    this.Markets = data;}
     );
   }
 
 
 Delete(id:any){
- confirm( "Are You Sure You Want To Delete Market Pamanently ?");
+
+  if(confirm( "Are You Sure You Want To Delete Market Pamanently ?"))
+  
+  { 
+
+this.Services.DeleteMarketById(id).subscribe(data=>{ this.DeleteMgs = true;})
+
+  }
 
 }
 

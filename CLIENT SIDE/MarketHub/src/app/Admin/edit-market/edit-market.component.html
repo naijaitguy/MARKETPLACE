@@ -5,13 +5,10 @@
 
 <div class="container mt-5">
    
-    <div class="row">
+    <div  class="row">
 
-    <div class="col-md-3">
-        <a [routerLink]= "['/Admin/AddFoodcategory']" class="btn btn-block btn-primary"> <i class='fa fa-cart-plus'></i>  Add New Item To Food Category </a>
-       
-    </div>
-
+    
+        <a [routerLink]= "['/Admin/CreateMarket']" class="btn btn-block btn-success"> <i class='fa fa-cart-plus'></i>   Create New Market </a>
     <div class="col-md-6 ">
 
         <h3 class="text-primary"> Update Your Market </h3>
@@ -20,19 +17,17 @@
 
         <div class="card-body">
 
+<span *ngIf="Success" class="alert alert-success"> Your Market Infomations Have beeb Updated Successfully </span>
+<form [formGroup]="FormData" (ngSubmit)= "ProcessForm()">
 
-<form [formGroup]>
-
-    <div class="form-group">
+    <div class="form-group mt-3">
 
         <label> market Name</label>
 
-        <input type="text" class="form-control" controlName="" placeholder=" Enter Maerket Name">
-
-        <div class="alert alert-danger">
-            <span></span>
-            <span></span>
-            <span></span>
+        <input type="text" class="form-control" formControlName="Name" placeholder=" Enter Maerket Name">
+        <div *ngIf="Submitted && f.Name.errors" class="alert-sm alert-danger">
+            <h6 *ngIf=" f.Name.errors.required"> Market Name Is Required  </h6>
+            
             </div>
     </div>
 
@@ -41,49 +36,30 @@
 
         <label> market Discription </label>
 
-        <textarea contolName="" class="form-control" placeholder="Descibe Your Market ">
+        <textarea formControlName="Discription" class="form-control" placeholder="Descibe Your Market ">
 
 
 
         </textarea>
-
-        <div class="alert alert-danger">
-            <span></span>
-            <span></span>
-            <span></span>
+     
+        <div *ngIf="Submitted && f.Discription.errors" class="alert-sm alert-danger">
+            <h6 *ngIf=" f.Discription.errors.required"> Market Discription Is Required  </h6>
             </div>
     </div>
     <div class="form-group">
 
-        <label> Food Category</label>
+        <label> Food Category</label>  <span class="text-primary"></span>
 
-        <select class="form-control" controlName= "">
-<option>Fruit</option>
-<option> Vegetables </option>
-<option> Farm Product </option>
+        <select class="form-control" formControlName="Catergory">   
+            <option selected>{{Markets.Catergory}}</option>
+<option value="Fruit">Fruit</option>
+<option value="Vegetables"> Vegetables </option>
+<option value="Farm Product"> Farm Product </option>
 
         </select>
 
-        <div class="alert alert-danger">
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-    </div>
-
-
-    <div class="form-group">
-
-        <label> Upload Product Image</label>
-
-        <div class="custom-file">
-            <input type="file" class="custom-file-input" id="customFile">
-            <label class="custom-file-label" for="customFile">Choose file</label>
-          </div>
-          <div class="alert alert-danger">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div *ngIf="Submitted && f.Catergory.errors" class="alert-sm alert-danger">
+            <h6 *ngIf=" f.Catergory.errors.required"> Market Catergory Is Required  </h6>
             </div>
     </div>
 
@@ -93,16 +69,12 @@
 
         <label> Location</label>
 
-<iframe class="form-control">
+        <input type="text" class="form-control" formControlName="Location" placeholder=" Enter Maerket Location">
+        <div *ngIf="Submitted && f.Location.errors" class="alert-sm alert-danger">
+            <h6 *ngIf=" f.Location.errors.required"> Market Location Is Required  </h6>
+            </div>
+    </div>
 
-    map
-</iframe>
-<div class="alert alert-danger">
-    <span></span>
-    <span></span>
-    <span></span>
-    </div>
-    </div>
 
 
 
@@ -120,8 +92,20 @@
 
     </div>
     
+     </div>
+    <div class="col-md-3">
+<hr>
+
+<label> First Picture Uploaded</label><br>
+<img src="https://localhost:44330/{{Markets.Image1}}" class="img-respnsive" width="100%" height="100px" >  
+        <hr><p></p> 
+        <label> Second Picture Uploaded</label><br>
+        <img src="https://localhost:44330/{{Markets.Image2}}" class="img-respnsive" width="100%" height="100px" >
+        <hr><p></p>
+        <label> Third  pictue Uploaded</label><br>
+        <img src="https://localhost:44330/{{Markets.Image3}}" class="img-respnsive" width="100%" height="100px" >
+        <hr>
     </div>
-    <div class="col-md-3"></div>
 
   </div>
 

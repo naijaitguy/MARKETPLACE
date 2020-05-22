@@ -3,127 +3,60 @@
 <app-slider></app-slider>
 <div class="container-fluid mt-1 pt-2 pb-2" style="background-color: chocolate;">
 
-    <div class="row" style="background-color: chocolate; align-items: center;">
+    <div  class="row" style="background-color: chocolate; align-items: center;">
 
         <div class="col-md-4">
-
-            <div class="input-group mb-1">
-                <select class="custom-select" id="inputGroupSelect04">
-                  <option selected>Search by Name...</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-                <div class="input-group-append">
-                  <button class="btn btn-warning" type="button">Search</button>
-                </div>
-              </div>
+          <app-search-name></app-search-name>
+          
         </div>
     <div class="col-md-4">
-        <div class="input-group mb-1">
-            <select class="custom-select" id="inputGroupSelect04">
-              <option selected>Search by Location...</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-            <div class="input-group-append">
-              <button class="btn btn-primary" type="button">Search</button>
-            </div>
-          </div>
+      <app-search-location></app-search-location>
 
     </div>
     <div class="col-md-4">
 
-        <div class="input-group mb-1">
-            <select class="custom-select" id="inputGroupSelect04">
-              <option selected>Search by category...</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-            <div class="input-group-append">
-              <button class="btn btn-success" type="button">Search</button>
-            </div>
-          </div>
-    </div>
-    </div>
-
+     <app-search-category></app-search-category>
+          
     
+
+    </div>
+    </div>
 
 
 </div>
 <div class="container mt-4 mb-4" >
+<div class="row">
 
-  <div class=" row">
+  <div *ngIf="SearchByNameError" class="alert alert-danger"> Market with the Name  " {{SearchName}} " Not Found </div>
+  <div *ngIf="SearchByLocationError" class="alert alert-danger"> No Market In The Current Location  " {{LocationSearch}}  "" </div>
+  <div *ngIf="SearchByCategoryError" class="alert alert-danger"> No Market In The {{Categorysearch}} Category   </div>
+</div>
+  <div  class=" row">
 
-    <div class="col-md-3 mb-2 ">
+    <div  *ngFor=" let Market of Markets "  class="col-md-4 mb-2 ">
 
         <div class="card">
-            <img class="card-img-top" src="../../../assets/Image/1.jpg" alt="Card image cap">
+          <div class="card-header">
+            <small class="text-primary text-center"> <h4> {{Market.Name}}</h4></small>
+          </div>
+            <img class="card-img-top" src="https://localhost:44330/{{Market.Image1}}" class="img-responsive" width="100%" height="120px;" alt="Card image cap">
+            <hr>
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+           
+              <p class="card-text">{{Market.Discription}}</p>
+              <a [routerLink]="['/User/Market/view/',Market.MarketId]" class="btn-sm btn-primary" style="float: right;">See More</a>
             </div>
             <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
+                <h6 class="text-primary">Location - {{Market.Location}}</h6>
               </div>
+              <div class="card-footer" style="background-color: chocolate; color: #ffffff;;">
+                <h5 class="">Food category - {{Market.Catergory}}</h5>
+              </div>
+              
           </div>
           
     </div>
 
-
-
-
-    <div class="col-md-3 mb-2">
-
-        <div class="card">
-            <img class="card-img-top" src="../../../assets/Image/3.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </div>
-          </div>
-    </div>
-
-
-
-    <div class="col-md-3 mb-2">
-
-        <div class="card">
-            <img class="card-img-top" src="../../../assets/Image/4.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </div>
-          </div>
-    </div>
-
-
-
-    <div class="col-md-3 mb-2">
-
-        <div class="card">
-            <img class="card-img-top" src="../../../assets/Image/6.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </div>
-          </div>
-    </div>
 
 
   </div>

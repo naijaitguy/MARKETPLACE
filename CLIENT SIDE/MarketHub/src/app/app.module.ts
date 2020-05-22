@@ -33,6 +33,11 @@ import { Upload2Component } from './Admin/New folder/upload2/upload2.component';
 import { Upload3Component } from './Admin/New folder/upload3/upload3.component';
 import { MarketService } from './Services/market.service';
 import { AuthenticationServicesService } from './Services/authentication-services.service';
+import { ViewComponent } from './Users/view/view.component';
+import { SearchNameComponent } from './Users/Search/search-name/search-name.component';
+import { SearchCategoryComponent } from './Users/Search/search-category/search-category.component';
+import { SearchLocationComponent } from './Users/Search/search-location/search-location.component';
+import { RefreshComponent } from './Users/refresh/refresh.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +65,12 @@ import { AuthenticationServicesService } from './Services/authentication-service
     UploadComponent,
     Upload1Component,
     Upload2Component,
-    Upload3Component
+    Upload3Component,
+    ViewComponent,
+    SearchNameComponent,
+    SearchCategoryComponent,
+    SearchLocationComponent,
+    RefreshComponent
   ],
   imports: [
     BrowserModule,

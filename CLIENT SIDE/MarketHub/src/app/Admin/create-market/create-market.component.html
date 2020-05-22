@@ -3,11 +3,11 @@
 
 
 
-<div class="container mt-2">
+<div class="container mt-5">
    
 
     <form [formGroup]="FormData" (ngSubmit)="ProcessForm()">
-    <div class="row mt-3 mb-3 ">
+    <div class="row mt-5 mb-3 ">
 
       <div class="col-md-5">
        
@@ -77,9 +77,16 @@
             <label> Food Category</label>
     
             <select class="form-control" formControlName= "Category">
-    <option value="Fruit">Fruit</option>
-    <option value="Vegetable"> Vegetables </option>
-    <option value=" Farm Product"> Farm Product </option>
+                <option selected>Search by category...</option>
+                <option value="Babay Food">Babay Food</option>
+                <option value="Vegetables">Vegetables</option>
+                <option value="Oils">Oils</option>
+                <option value="Salads">Salads</option>
+                <option value=" Pasteries"> Pasteries</option>
+                <option value="Meats">Meats </option>
+                <option value="Breads">Breads</option>
+                <option value="Bush Meat">Bush Meat</option>
+                <option value="Farm Product"> Farm Product</option>
     
             </select>
 

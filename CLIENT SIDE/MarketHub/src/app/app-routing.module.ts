@@ -15,6 +15,9 @@ import { ContactComponent } from './Admin/contact/contact.component';
 import { AdminProfileComponent } from './Admin/admin-profile/admin-profile.component';
 import { AboutComponent } from './Admin/about/about.component';
 import { UploadComponent } from './Admin/upload/upload.component';
+import { ViewComponent } from './Users/view/view.component';
+import { AuthGaurd } from './_HELPER/AuthGaurd';
+import { UserGaurd } from './_HELPER/UserGaurd';
 
 
 
@@ -22,19 +25,20 @@ import { UploadComponent } from './Admin/upload/upload.component';
 const routes: Routes = [
   {path: '', component: AuthenticationComponent, pathMatch: 'full'},
   {path : 'User' , component: AuthenticationComponent},
-  {path : 'User/CreateAccount' , component: CreateAccountComponent},
+  {path : 'User/CreateAccount' , component: CreateAccountComponent, canActivate: [AuthGaurd ]},
+  {path : 'User/Market/view/:id' , component: ViewComponent, canActivate: [AuthGaurd ]},
   {path : 'Admin' , component: AdminAuthenicationComponent},
-  {path : 'Contact' , component: ContactComponent},
-  {path : 'About' , component:  AboutComponent},
-  {path : 'Admin/Profile' , component: AdminProfileComponent},
-  {path : 'Admin/Upload' , component: UploadComponent },
-  {path : 'User/Home' , component: HomeComponent},
-  {path : 'Admin/Home' , component: AdminHomeComponent},
-  {path : 'Admin/CreateMarket' , component: CreateMarketComponent},
-  {path : 'User/ManageAccount' , component:  ManageAccountComponent},
-  {path : 'Admin/ViewMarket/:id' , component: ViewMarketComponent},
-  {path : 'Admin/EditMarket/:id' , component: EditMarketComponent},
-  {path : 'Admin/AddFoodcategory' , component: AddFoodcatergoryComponent},
+  {path : 'Contact' , component: ContactComponent, canActivate: [AuthGaurd ]},
+  {path : 'About' , component:  AboutComponent , canActivate: [AuthGaurd ]},
+  {path : 'Admin/Profile' , component: AdminProfileComponent, canActivate: [UserGaurd ]},
+  {path : 'Admin/Upload' , component: UploadComponent, canActivate: [UserGaurd ] },
+  {path : 'User/Home' , component: HomeComponent, canActivate: [AuthGaurd ]},
+  {path : 'Admin/Home' , component: AdminHomeComponent, canActivate: [UserGaurd ]},
+  {path : 'Admin/CreateMarket' , component: CreateMarketComponent , canActivate: [UserGaurd ]},
+  {path : 'User/ManageAccount' , component:  ManageAccountComponent , canActivate: [AuthGaurd ]},
+  {path : 'Admin/ViewMarket/:id' , component: ViewMarketComponent, canActivate: [UserGaurd ]},
+  {path : 'Admin/EditMarket/:id' , component: EditMarketComponent, canActivate: [UserGaurd ]},
+  {path : 'Admin/AddFoodcategory' , component: AddFoodcatergoryComponent, canActivate: [UserGaurd ]},
   {path: '**', redirectTo: '/'}
 ];
 

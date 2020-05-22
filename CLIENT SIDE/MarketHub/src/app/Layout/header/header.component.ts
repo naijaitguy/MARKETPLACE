@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationServicesService } from 'src/app/Services/authentication-services.service';
 import { Router } from '@angular/router';
+import { UserModel } from 'src/app/Model/UserModel';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+UserName;
   constructor(private AuthService: AuthenticationServicesService, private route: Router) { }
 
   ngOnInit(): void {
+
+   this.UserName =  localStorage.getItem("UserName");
+
   }
 
   LogOut(){
@@ -19,5 +23,7 @@ export class HeaderComponent implements OnInit {
     this.AuthService.LogOutUser();
     this.route.navigate(['/']);
   }
+
+  
 
 }

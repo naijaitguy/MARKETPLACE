@@ -1,12 +1,12 @@
 <nav  class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a [routerLink]="['']" class="navbar-brand">
+    <a [routerLink]="['/User/Home']" class="navbar-brand">
          <img src="../../../assets/Image/logo.jpg"alt ="" height="60px;" class="img-responsive img-rounded">
         MARKET HUB
         </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarText">
+      <div  class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a [routerLink]="['/User/ManageAccount']" class="nav-link active" > My Profile </a>
@@ -29,7 +29,7 @@
         </ul>
         <span  class="navbar-right " style="color: #ffffff;">
   
-         Welcome Back Babs        <a [routerLink]="" (click)="LogOut()" class="nav-link" style="text-decoration: none; color: #ffffff;">| Log Off </a>
+         Welcome Back  {{UserName}}       <a [routerLink]="" (click)="LogOut()" class="nav-link" style="text-decoration: none; color: #ffffff;">| Log Off </a>
               
         </span>
       </div>

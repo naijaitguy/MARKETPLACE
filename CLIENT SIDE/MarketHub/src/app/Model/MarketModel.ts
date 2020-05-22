@@ -1,6 +1,6 @@
 export class MarketModel{
 
-public MarketName;
+public Name;
 
 public Category;
 public Discription;

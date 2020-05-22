@@ -8,10 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./navigationbar.component.css']
 })
 export class NavigationbarComponent implements OnInit {
-
+UserName;
   constructor(private AuthService: AuthenticationServicesService, private route: Router) { }
 
   ngOnInit(): void {
+
+    this.UserName = localStorage.getItem("AdminUserName");
   }
 
   

@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MarketService } from 'src/app/Services/market.service';
 
 @Component({
-  selector: 'app-view-market',
-  templateUrl: './view-market.component.html',
-  styleUrls: ['./view-market.component.css']
+  selector: 'app-view',
+  templateUrl: './view.component.html',
+  styleUrls: ['./view.component.css']
 })
-export class ViewMarketComponent implements OnInit {
-
+export class ViewComponent implements OnInit {
 
   public Markets;
  

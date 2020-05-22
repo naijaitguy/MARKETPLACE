@@ -64,23 +64,74 @@ namespace MarketHub.Controllers.MarketController
         // GET: api/<controller>
         [HttpGet]
         [Route("GetAllMarket")]
-        [Authorize(Roles = "Administrator")]
+    
         public async Task <ActionResult<List<Market>>> Get()
         {
             return await this.UnitOfWork.Market_Repo.GetAll();
         }
+        ////
+        ///
 
+        [HttpGet]
+        [Route("GetMarketByCategory/{Category}")]
+
+        public async Task<ActionResult<List<Market>>> GetMarketByCategory(string Category)
+        {
+
+            if (Category == null) { return BadRequest(); }
+
+            var Result =  await this.UnitOfWork.Market_Repo.GetMarketByCategory(Category);
+
+            if (Result.Count() > 0 ) { return Ok(Result); }
+
+            return NotFound();
+        }
+
+        /// <summary>
+        /// /////////////////////
+        /// </summary>
+        [HttpGet]
+        [Route("GetMarketByLocation/{Location}")]
+
+        public async Task<ActionResult<List<Market>>> GetMarketByLocation(string Location)
+        {
+            if (Location == null) { return BadRequest(); }
+
+           var Result = await this.UnitOfWork.Market_Repo.GetMarketByLocation(Location);
+
+
+            if (Result.Count() > 0) { return Ok(Result); }
+
+            return NotFound();
+        }
+        /// <returns></returns>
+
+        //Get:
+
+        [HttpGet]
+        [Route("GetMarketByName/{MarketName}")]
+
+        public async Task<ActionResult<List<Market>>> GetMarketByName(string MarketName)
+        {
+            if (MarketName == null) { return BadRequest(); }
+
+           var Result = await this.UnitOfWork.Market_Repo.GetMarketBYName(MarketName);
+
+            if (Result.Count() > 0) { return Ok(Result); }
+
+            return NotFound();
+        }
         // GET api/<controller>/5
         [HttpGet]
         [Route("GetMarketById/{id}")]
 
-        public async Task<ActionResult<Market>> Get(string id)
+        public async Task<ActionResult<Market>> Get(int? id)
         {
             if (id == null) { return NotFound(new { Response = "Id Not Found " }); }
 
             try {
 
-                var Result = await this.UnitOfWork.Market_Repo.GetById(id);
+                var Result = await this.UnitOfWork.Market_Repo.GetMarketById(id);
 
                 return Ok(Result);
             }
@@ -147,14 +198,60 @@ namespace MarketHub.Controllers.MarketController
 
         // PUT api/<controller>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        [Route("UpdateMarket/{id}")]
+        [Authorize(Roles = "Administrator")]
+        public async Task<ActionResult> Put(int? id, [FromBody] MarketModel Model)
         {
+
+            if (id == null) { return NotFound(new { Response = "Id Not Found " }); }
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    Market Market = await this.UnitOfWork.Market_Repo.GetMarketById(id);
+
+                    if (Market != null) {
+
+                        var Result = await this.UnitOfWork.Market_Repo.GetMarketById(id);
+
+                        Market.Catergory = Model.Catergory;
+                        Market.Discription = Model.Discription;
+                        Market.Location = Model.Location;
+                        Market.Name = Model.Name;
+                        await this.UnitOfWork.SaveChanges();
+                        return Ok(Result);
+
+
+                    }
+                    
+                }
+                catch (Exception Ex)
+                { return BadRequest(); }
+
+
+
+            }
+            return BadRequest();
         }
 
         // DELETE api/<controller>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        [Route("DeleteMarket/{id}")]
+        [Authorize(Roles = "Administrator")]
+        public async Task<ActionResult> Delete(int? id)
         {
+
+            if (id == null) { return BadRequest(); }
+
+            try {
+
+               await  this.UnitOfWork.Market_Repo.Delete(id);
+                 await this.UnitOfWork.SaveChanges();
+                return Ok();
+            
+            }
+            catch (Exception Ex)
+            { return BadRequest(Ex); }
         }
     }
 }

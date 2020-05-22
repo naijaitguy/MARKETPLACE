@@ -36,6 +36,23 @@ namespace MarketHub.Data.DAL
 
         }
 
+
+        public async Task Delete(int? id)
+        {
+
+            if (id != null)
+            {
+                T User = await Entity.FindAsync(id);
+                if (User != null)
+                {
+
+                    Entity.Remove(User);
+
+                }
+
+            }
+        }
+
         public async Task<User> FindUserEmail(string UserEmail)
         {
 
@@ -52,27 +69,7 @@ namespace MarketHub.Data.DAL
 
         }
 
-        /*
-        public async Task<Market> FindTaxApplicationEmail(string UserEmail)
-        {
-
-            return await this.Context.TaxApplications.FirstOrDefaultAsync(m => m.Email == UserEmail);
-
-
-        }
-
-       
-
-
-        public async Task<Market> FindTaxApplicationTin(string Tin)
-        {
-
-         //   return await this.Context.Markets.FirstOrDefaultAsync(m => m.Tin == Tin);
-
-
-        }
-        */
-
+    
         public async Task<bool> Add(T model)
         {
             try
@@ -82,6 +79,34 @@ namespace MarketHub.Data.DAL
             catch(Exception) { return false; }
 
         }
+
+        public async Task<Market> GetMarketById(int? id) {
+
+            return await this.Context.Markets.FindAsync(id);
+        
+        }
+
+        public async Task<List<Market>> GetMarketBYName(string Name)
+        {
+
+            return await this.Context.Markets.Where(m => m.Name == Name).ToListAsync();
+
+        }
+    
+        public async Task< List<Market>> GetMarketByCategory(string Category)        {
+
+            return await this.Context.Markets.Where(m => m.Catergory == Category).ToListAsync();
+
+        }
+
+
+        public async Task<List<Market>> GetMarketByLocation(string Location)
+        {
+
+            return await this.Context.Markets.Where(m => m.Location == Location).ToListAsync();
+
+        }
+
 
 
 

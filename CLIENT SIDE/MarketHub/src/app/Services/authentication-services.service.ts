@@ -54,7 +54,9 @@ return this.Http.post<UserModel>(environment.ApiUrl + 'Identity/CreateAccount', 
 
   {
     this.saveToke(TaxRegModel.Token);
+  
     localStorage.setItem('CurrentUser', JSON.stringify(TaxRegModel));
+    localStorage.setItem('UserName', TaxRegModel.UserName);
     return TaxRegModel;
 
   }
@@ -74,8 +76,9 @@ return this.Http.post<UserModel>(environment.ApiUrl + 'Identity/CreateAccount', 
   if (TaxRegModel && TaxRegModel.Token)
 
   {
-    this.saveToke(TaxRegModel.Token);
-    localStorage.setItem('CurrentUser', JSON.stringify(TaxRegModel));
+    this.saveAdminToke(TaxRegModel.Token);
+    localStorage.setItem('AdminUser', JSON.stringify(TaxRegModel));
+    localStorage.setItem('AdminUserName', TaxRegModel.UserName);
     return TaxRegModel;
 
   }
@@ -101,7 +104,9 @@ return this.Http.post<UserModel>(environment.ApiUrl + 'Identity/CreateAccount', 
 
      LogOutUser(){
   localStorage.removeItem('token');
+  localStorage.removeItem('Admintoken');
   localStorage.removeItem('CurrentUser');
+  localStorage.removeItem('AdminUser');
   localStorage.clear();
       }
 
@@ -142,8 +147,26 @@ saveToke(token){
 }
 
 
+AdminIsloggin(){
+  if (this.getAdminToken() !== null){
+     return true;
+  } else{ return false; }
+  }
+
+saveAdminToke(token){
+
+  localStorage.setItem('Admintoken', token);
+
+}
+
+
 getToken(){
   return localStorage.getItem('token');
+
+}
+
+getAdminToken(){
+  return localStorage.getItem('Admintoken');
 
 }
 
