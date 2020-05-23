@@ -1,0 +1,66 @@
+<app-navigationbar></app-navigationbar>
+
+
+
+
+<div class="container mt-5">
+   
+    <div class="row">
+
+    <div class="col-md-3">
+     
+    <a [routerLink]= "['/Admin/CreateMarket']" class="btn btn-block btn-success"> <i class='fa fa-cart-plus'></i>   Create New Market </a>
+    </div>
+
+    <div class="col-md-6 ">
+
+        <h3 class="text-primary"> Create  Category </h3>
+    <div class="card bg-light">
+
+
+        <div class="card-body">
+
+
+<form [formGroup]>
+
+    <div class="form-group">
+
+        <label> Food Name</label>
+
+        <input type="text" class="form-control" controlName="" placeholder=" Enter Maerket Name">
+    </div>
+
+    <div class="form-group">
+
+        <label> Catergory Category</label>
+        <input type="text" class="form-control" controlName="" placeholder=" Enter Maerket Name">
+     
+    </div>
+
+
+   
+
+
+
+
+    <div class="form-group">
+
+        <input class="btn btn-block btn-success" type="submit" value=" Create Category">
+        
+    </div>
+
+</form>
+
+        </div>
+
+
+
+    </div>
+    
+    </div>
+    <div class="col-md-3"></div>
+
+  </div>
+
+</div>
+<app-footer></app-footer>

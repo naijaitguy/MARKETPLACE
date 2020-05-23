@@ -1,0 +1,113 @@
+<app-navigationbar></app-navigationbar>
+
+
+
+
+<div class="container mt-5">
+   
+    <div  class="row">
+
+    
+        <a [routerLink]= "['/Admin/CreateMarket']" class="btn btn-block btn-success"> <i class='fa fa-cart-plus'></i>   Create New Market </a>
+    <div class="col-md-6 ">
+
+        <h3 class="text-primary"> Update Your Market </h3>
+    <div class="card bg-light">
+
+
+        <div class="card-body">
+
+<span *ngIf="Success" class="alert alert-success"> Your Market Infomations Have beeb Updated Successfully </span>
+<form [formGroup]="FormData" (ngSubmit)= "ProcessForm()">
+
+    <div class="form-group mt-3">
+
+        <label> market Name</label>
+
+        <input type="text" class="form-control" formControlName="Name" placeholder=" Enter Maerket Name">
+        <div *ngIf="Submitted && f.Name.errors" class="alert-sm alert-danger">
+            <h6 *ngIf=" f.Name.errors.required"> Market Name Is Required  </h6>
+            
+            </div>
+    </div>
+
+
+    <div class="form-group">
+
+        <label> market Discription </label>
+
+        <textarea formControlName="Discription" class="form-control" placeholder="Descibe Your Market ">
+
+
+
+        </textarea>
+     
+        <div *ngIf="Submitted && f.Discription.errors" class="alert-sm alert-danger">
+            <h6 *ngIf=" f.Discription.errors.required"> Market Discription Is Required  </h6>
+            </div>
+    </div>
+    <div class="form-group">
+
+        <label> Food Category</label>  <span class="text-primary"></span>
+
+        <select class="form-control" formControlName="Catergory">   
+            <option selected>{{Markets.Catergory}}</option>
+<option value="Fruit">Fruit</option>
+<option value="Vegetables"> Vegetables </option>
+<option value="Farm Product"> Farm Product </option>
+
+        </select>
+
+        <div *ngIf="Submitted && f.Catergory.errors" class="alert-sm alert-danger">
+            <h6 *ngIf=" f.Catergory.errors.required"> Market Catergory Is Required  </h6>
+            </div>
+    </div>
+
+
+
+    <div class="form-group">
+
+        <label> Location</label>
+
+        <input type="text" class="form-control" formControlName="Location" placeholder=" Enter Maerket Location">
+        <div *ngIf="Submitted && f.Location.errors" class="alert-sm alert-danger">
+            <h6 *ngIf=" f.Location.errors.required"> Market Location Is Required  </h6>
+            </div>
+    </div>
+
+
+
+
+    <div class="form-group">
+
+        <input class="btn btn-block btn-success" type="submit" value=" Add market">
+        
+    </div>
+
+</form>
+
+        </div>
+
+
+
+    </div>
+    
+     </div>
+    <div class="col-md-3">
+<hr>
+
+<label> First Picture Uploaded</label><br>
+<img src="https://localhost:44330/{{Markets.Image1}}" class="img-respnsive" width="100%" height="100px" >  
+        <hr><p></p> 
+        <label> Second Picture Uploaded</label><br>
+        <img src="https://localhost:44330/{{Markets.Image2}}" class="img-respnsive" width="100%" height="100px" >
+        <hr><p></p>
+        <label> Third  pictue Uploaded</label><br>
+        <img src="https://localhost:44330/{{Markets.Image3}}" class="img-respnsive" width="100%" height="100px" >
+        <hr>
+    </div>
+
+  </div>
+
+</div>
+<app-footer></app-footer>

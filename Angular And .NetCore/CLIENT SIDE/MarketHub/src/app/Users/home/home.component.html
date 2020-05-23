@@ -1,0 +1,68 @@
+<app-header></app-header>
+
+<app-slider></app-slider>
+<div class="container-fluid mt-1 pt-2 pb-2" style="background-color: chocolate;">
+
+    <div  class="row" style="background-color: chocolate; align-items: center;">
+
+        <div class="col-md-4">
+          <app-search-name></app-search-name>
+          
+        </div>
+    <div class="col-md-4">
+      <app-search-location></app-search-location>
+
+    </div>
+    <div class="col-md-4">
+
+     <app-search-category></app-search-category>
+          
+    
+
+    </div>
+    </div>
+
+
+</div>
+<div class="container mt-4 mb-4" >
+<div class="row">
+
+  <div *ngIf="SearchByNameError" class="alert alert-danger"> Market with the Name  " {{SearchName}} " Not Found </div>
+  <div *ngIf="SearchByLocationError" class="alert alert-danger"> No Market In The Current Location  " {{LocationSearch}}  "" </div>
+  <div *ngIf="SearchByCategoryError" class="alert alert-danger"> No Market In The {{Categorysearch}} Category   </div>
+</div>
+  <div  class=" row">
+
+    <div  *ngFor=" let Market of Markets "  class="col-md-4 mb-2 ">
+
+        <div class="card">
+          <div class="card-header">
+            <small class="text-primary text-center"> <h4> {{Market.Name}}</h4></small>
+          </div>
+            <img class="card-img-top" src="https://localhost:44330/{{Market.Image1}}" class="img-responsive" width="100%" height="120px;" alt="Card image cap">
+            <hr>
+            <div class="card-body">
+           
+              <p class="card-text">{{Market.Discription}}</p>
+              <a [routerLink]="['/User/Market/view/',Market.MarketId]" class="btn-sm btn-primary" style="float: right;">See More</a>
+            </div>
+            <div class="card-footer">
+                <h6 class="text-primary">Location - {{Market.Location}}</h6>
+              </div>
+              <div class="card-footer" style="background-color: chocolate; color: #ffffff;;">
+                <h5 class="">Food category - {{Market.Catergory}}</h5>
+              </div>
+              
+          </div>
+          
+    </div>
+
+
+
+  </div>
+    
+</div>
+
+
+
+<app-footer></app-footer>

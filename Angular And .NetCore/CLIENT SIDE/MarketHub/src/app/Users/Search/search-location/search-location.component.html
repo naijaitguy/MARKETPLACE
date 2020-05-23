@@ -1,0 +1,17 @@
+
+<form [formGroup]="FormData"  (ngSubmit)="ProcessForm()">
+    <div class="input-group mb-1">
+      
+      <select class="custom-select " id="inputGroupSelect04" formControlName ="Name"> 
+          
+            <option value="ph">PH</option>
+            <option value="Lagos">Lagos</option>
+            <option value="Abuja">Abuja</option>
+          </select>
+         
+          <div class="input-group-append">
+            <button class="btn btn-warning" type="submit">Search by Location</button>
+          </div>
+        </div>
+
+    </form>

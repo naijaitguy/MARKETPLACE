@@ -1,0 +1,61 @@
+<app-navigationbar></app-navigationbar>
+<div class=" row container  mt-5">
+
+    <div class="col-md-4">
+
+        <a [routerLink]= "['/User/Home']" class="btn btn-block btn-success"> <i class='fa fa-cart-plus'></i>  Go Back To Market </a>
+
+    </div>
+
+ 
+</div>
+<div class="container mt-5">
+
+
+    <table class="table  table-striped table-bordered ">
+
+<tr>
+<th> MARKET NAME </th> <td>    {{Markets.Name}}</td>
+
+</tr>
+
+
+
+<tr>
+    <th> MARKET DISCRIPTION </th> <td>    {{Markets.Discription}}</td>
+    
+    </tr>
+
+
+    <tr>
+        <th> FOOD CATEGORY</th> <td>    {{Markets.Catergory}}</td>
+        
+        </tr>
+
+        <tr>
+            <th> MARKET LOCATION </th> <td>    {{Markets.Location}}</td>
+            
+            </tr>
+
+        <tr>
+            <th> MARKET IMAGE 1</th> <td>  <img src="https://localhost:44330/{{Markets.Image1}}" class="img-respnsive" width="100px" height="100px" >    </td>
+            
+            </tr>
+
+
+            
+        <tr>
+            <th> MARKET IMAGE 2</th> <td>    <img src="https://localhost:44330/{{Markets.Image2}}" class="img-respnsive" width="100px" height="100px" >  </td>
+            
+            </tr>
+
+            
+        <tr>
+            <th> MARKET IMAGE 3</th> <td>    <img src="https://localhost:44330/{{Markets.Image3}}" class="img-respnsive" width="100px" height="100px" >  </td>
+            
+            </tr>
+    </table>
+</div>
+
+
+<app-footer></app-footer>
