@@ -29,7 +29,7 @@ export class MarketService {
 
   GetMarketByName(MarketName): Observable <Array <MarketModel>> {
 
-    return this.Http.get<Array< MarketModel>>( environment.ApiUrl + 'Market/GetMarketByName/' + MarketName , this.httpOption)
+    return this.Http.post<Array< MarketModel>>( environment.ApiUrl + 'Market/GetMarketByName' , {MarketName} , this.httpOption)
     .pipe(retry(1), catchError(this.errorHandle));
 
     }
@@ -39,7 +39,7 @@ export class MarketService {
 
   GetMarketByCategory(Category): Observable <Array <MarketModel>> {
 
-    return this.Http.get<Array< MarketModel>>( environment.ApiUrl + 'Market/GetMarketByCategory/' + Category , this.httpOption)
+    return this.Http.post<Array< MarketModel>>( environment.ApiUrl + 'Market/GetMarketByCategory/' , {Category} , this.httpOption)
     .pipe(retry(1), catchError(this.errorHandle));
 
     }
@@ -50,31 +50,29 @@ export class MarketService {
 
     GetMarketByLocation(Location): Observable <Array <MarketModel>> {
 
-      return this.Http.get<Array< MarketModel>>( environment.ApiUrl + 'Market/GetMarketBylocation/' + Location, this.httpOption)
+      return this.Http.post<Array< MarketModel>>( environment.ApiUrl + 'Market/GetMarketByLocation/' , {Location} , this.httpOption)
       .pipe(retry(1), catchError(this.errorHandle));
 
       }
 
 
-
-
-  GetMarketById(maktId): Observable <MarketModel> {
-
-    return this.Http.get< MarketModel>( environment.ApiUrl + 'Market/GetMarketById/' + maktId, this.httpOption);
-
+  GetMarketById(id): Observable <MarketModel> {
+ 
+    return this.Http.get< MarketModel>( environment.ApiUrl + 'Market/GetMarketbyId/' + id, this.httpOption)
+    .pipe(retry(1), catchError(this.errorHandle));
+    
     }
 
-    
   DeleteMarketById(maktId): Observable <MarketModel> {
 
-    return this.Http.get< MarketModel>( environment.ApiUrl + 'Market/DeleteMarket/' + maktId, this.httpOption);
+    return this.Http.delete< MarketModel>( environment.ApiUrl + 'Market/DeleteMarket/' + maktId, this.httpOption);
 
     }
 
 
     UpdateMarket(maktId, MarketModel ): Observable <MarketModel> {
 
-      return this.Http.post< MarketModel>( environment.ApiUrl + 'Market/UpdateMarket/' + maktId, MarketModel, this.httpOption);
+      return this.Http.put< MarketModel>( environment.ApiUrl + 'Market/UpdateMarket/' + maktId, MarketModel, this.httpOption);
 
       }
 

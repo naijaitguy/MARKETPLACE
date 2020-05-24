@@ -24,9 +24,9 @@
 
         <label> market Name</label>
 
-        <input type="text" class="form-control" formControlName="Name" placeholder=" Enter Maerket Name">
-        <div *ngIf="Submitted && f.Name.errors" class="alert-sm alert-danger">
-            <h6 *ngIf=" f.Name.errors.required"> Market Name Is Required  </h6>
+        <input type="text" class="form-control" formControlName="MarketName" placeholder=" Enter Maerket Name">
+        <div *ngIf="Submitted && f.MarketName.errors" class="alert-sm alert-danger">
+            <h6 *ngIf=" f.MarketName.errors.required"> Market Name Is Required  </h6>
             
             </div>
     </div>
@@ -50,16 +50,22 @@
 
         <label> Food Category</label>  <span class="text-primary"></span>
 
-        <select class="form-control" formControlName="Catergory">   
-            <option selected>{{Markets.Catergory}}</option>
-<option value="Fruit">Fruit</option>
-<option value="Vegetables"> Vegetables </option>
-<option value="Farm Product"> Farm Product </option>
+        <select class="form-control" formControlName="Category">   
+            <option selected>{{Markets[0].Category}}</option>
+            <option selected>Search by category...</option>
+            <option value="Babay Food">Babay Food</option>
+            <option value="Vegetables">Vegetables</option>
+            <option value="Oils">Oils</option>
+            <option value="Salads">Salads</option>
+            <option value=" Pasteries"> Pasteries</option>
+            <option value="Meats">Meats </option>
+            <option value="Breads">Breads</option>
+            <option value="Bush Meat">Bush Meat</option>
 
         </select>
 
-        <div *ngIf="Submitted && f.Catergory.errors" class="alert-sm alert-danger">
-            <h6 *ngIf=" f.Catergory.errors.required"> Market Catergory Is Required  </h6>
+        <div *ngIf="Submitted && f.Category.errors" class="alert-sm alert-danger">
+            <h6 *ngIf=" f.Category.errors.required"> Market Catergory Is Required  </h6>
             </div>
     </div>
 
@@ -80,7 +86,7 @@
 
     <div class="form-group">
 
-        <input class="btn btn-block btn-success" type="submit" value=" Add market">
+        <input class="btn btn-block btn-success" type="submit" value=" Update market">
         
     </div>
 
@@ -97,13 +103,13 @@
 <hr>
 
 <label> First Picture Uploaded</label><br>
-<img src="https://localhost:44330/{{Markets.Image1}}" class="img-respnsive" width="100%" height="100px" >  
+<img src="{{Markets[0].Image1}}" class="img-respnsive" width="100%" height="100px" >  
         <hr><p></p> 
         <label> Second Picture Uploaded</label><br>
-        <img src="https://localhost:44330/{{Markets.Image2}}" class="img-respnsive" width="100%" height="100px" >
+        <img src="{{Markets[0].Image2}}" class="img-respnsive" width="100%" height="100px" >
         <hr><p></p>
         <label> Third  pictue Uploaded</label><br>
-        <img src="https://localhost:44330/{{Markets.Image3}}" class="img-respnsive" width="100%" height="100px" >
+        <img src="{{Markets[0].Image3}}" class="img-respnsive" width="100%" height="100px" >
         <hr>
     </div>
 

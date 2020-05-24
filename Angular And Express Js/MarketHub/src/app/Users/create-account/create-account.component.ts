@@ -82,22 +82,14 @@ let UserName = {UserName: this.f.UserName.value};
 
   user(){
 
-    const User =
-    {Email: this.f.Email,
-      Password: this.f.Password,
-
-     Address: this.f.Address,
-      PhoneNumber: this.f.PhoneNumber,
-       UserName: this.f.UserName,
-         FullName : this.f.FullName};
 
 
-         return User;
 
   }
 
     ProcessForm(){
       this.Submitted = true;
+
 
       if (this.f.Password.value !== this.f.ConfirmPassword.value){  this.PwdError = true; return false; } else{
       if (this.FormData.invalid){  return false;  }
@@ -110,7 +102,10 @@ let UserName = {UserName: this.f.UserName.value};
   AddUser(){
 
 
-    this.Userservice.RegisterUser(this.user()).subscribe(
+
+
+         
+    this.Userservice.RegisterUser(this.FormData.value).subscribe(
      data =>  {this.Success = true; },
      error => { this.Error = true; }
 

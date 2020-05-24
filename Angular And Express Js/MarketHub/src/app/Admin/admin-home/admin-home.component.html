@@ -1,6 +1,6 @@
 <app-navigationbar></app-navigationbar>
 
-<div class="container mt-5">
+<div class="container-fluid mt-5">
 
 <div class="row">
 <div class="col-md-4 mb-1">
@@ -23,7 +23,7 @@
 
 <div class="row mt-3">
 
-    <table class="table table-hover table-bordered table-responsive table-stripred">
+    <table class="table table-hover table-bordered mr-2 table-stripred">
         <thead style="color: #ffffff; background-color:chocolate;">
         
       
@@ -34,23 +34,23 @@
             <th > FOOD CATEGORY</th>
             <th >DESCRIPTION</th>
             <th> LOCATION</th>
-            <th >  ADMIN ACTION </th>
+            <th >  ADMINACTION </th>
          
         </thead>
-        <tbody>
+        <tbody class="ml-2 mr-2">
           <tr *ngFor=" let Market of Markets ">
           
-            <td> <img src="https://localhost:44330/{{Market.Image1}} " width="100px" height="50px" class="img-responsive img-rounded"></td>
-            <td> <img src="https://localhost:44330/{{Market.Image2}} "  width="100px" height="50px" class="img-responsive img-rounded"></td>
-            <td> <img src="https://localhost:44330/{{Market.Image3}} "  width="100px" height="50px" class="img-responsive img-rounded"></td>
+            <td> <img src="{{Market.Image1}} " width="100px" height="50px" class="img-responsive img-rounded"></td>
+            <td> <img src="{{Market.Image2}} "  width="100px" height="50px" class="img-responsive img-rounded"></td>
+            <td> <img src="{{Market.Image3}} "  width="100px" height="50px" class="img-responsive img-rounded"></td>
             <td>{{Market.Name}}</td>
-            <td>{{Market.Catergory}}</td>
+            <td>{{Market.Category}}</td>
             <td>{{Market.Discription}}</td>
             <td>{{Market.Location}}</td>
             <td>
-              <a [routerLink]= "['/Admin/ViewMarket/',Market.MarketId]" class="btn-sm mr-1 btn-success"> <i class='fa fa-search-plus'></i></a>
-              <a [routerLink]= "['/Admin/EditMarket/',Market.MarketId]" class="btn-sm mr-1 mb-1 btn-primary"> <i class='fa fa-edit'></i> </a>
-  <a>           <button (click)="Delete(Market.MarketId)" class=" btn  btn-danger btn-sm"> <i class='fa fa-trash' ></i></button></a> 
+              <a [routerLink]= "['/Admin/ViewMarket/',Market.MarketId]" class="btn-sm mr-1 btn-success"> <i class='fa fa-search-plus'>View</i></a>
+              <a [routerLink]= "['/Admin/EditMarket/',Market.MarketId]" class="btn-sm mr-1 mb-1 btn-primary"> <i class='fa fa-edit'></i>Edit </a>
+  <a>           <button (click)="Delete(Market.MarketId)" class=" btn  btn-danger btn-sm"> <i class='fa fa-trash' ></i> Delete</button></a> 
            
             
             

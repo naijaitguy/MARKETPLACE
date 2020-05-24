@@ -48,13 +48,13 @@ return this.Http.post<UserModel>(environment.ApiUrl + 'Identity/RegisterUser', U
 
   UserLogin(Email: any , Password: any)
   {
-   return this.Http.post<any>( environment.ApiUrl  + 'Identity/Authenticate ', { Email, Password})
+   return this.Http.post<any>( environment.ApiUrl  + 'Identity/AuthenticateUser', { Email, Password})
    // tslint:disable-next-line: no-shadowed-variable
    .pipe(map(TaxRegModel => {
-  if (TaxRegModel && TaxRegModel.Token)
+  if (TaxRegModel && TaxRegModel.token)
 
   {
-    this.saveToke(TaxRegModel.Token);
+    this.saveToke(TaxRegModel.token);
   
     localStorage.setItem('CurrentUser', JSON.stringify(TaxRegModel));
     localStorage.setItem('UserName', TaxRegModel.UserName);
@@ -71,13 +71,13 @@ return this.Http.post<UserModel>(environment.ApiUrl + 'Identity/RegisterUser', U
   
   AuthenticateAdmin(Email: any , Password: any)
   {
-   return this.Http.post<any>( environment.ApiUrl  + 'Identity/AuthenticateAdmin ', { Email, Password})
+   return this.Http.post<any>( environment.ApiUrl  + 'Identity/AuthenticateUser', { Email, Password})
    // tslint:disable-next-line: no-shadowed-variable
    .pipe(map(TaxRegModel => {
-  if (TaxRegModel && TaxRegModel.Token)
+  if (TaxRegModel && TaxRegModel.token)
 
   {
-    this.saveToke(TaxRegModel.Token);
+    this.saveToke(TaxRegModel.token);
     localStorage.setItem('AdminUser', JSON.stringify(TaxRegModel));
     localStorage.setItem('AdminUserName', TaxRegModel.UserName);
     return TaxRegModel;

@@ -16,20 +16,16 @@ export class Upload3Component implements OnInit {
 
   ngOnInit() {
   }
-
   public uploadFile = (files) => {
     if (files.length === 0) {
       return;
     }
-   
-    let filesToUpload : File[] = files;
+ 
+    let fileToUpload = <File>files[0];
     const formData = new FormData();
-      
-    Array.from(filesToUpload).map((file, index) => {
-      return formData.append('file'+ index, file, file.name);
-    });
+    formData.append('file', fileToUpload, fileToUpload.name);
    
-    this.http.post('https://localhost:44330/api/Market/Upload', formData, {reportProgress: true, observe: 'events'})
+    this.http.post('http://localhost:4000/api/Market/Upload', formData, {reportProgress: true, observe: 'events'})
       .subscribe(event => {
         if (event.type === HttpEventType.UploadProgress)
           this.progress = Math.round(100 * event.loaded / event.total);

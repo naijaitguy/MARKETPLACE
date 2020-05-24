@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MarketService } from 'src/app/Services/market.service';
+import { HttpClient } from '@angular/common/http/http';
 
 @Component({
   selector: 'app-view-market',
@@ -12,19 +13,20 @@ export class ViewMarketComponent implements OnInit {
 
 
   public Markets;
- 
+
   MktId ;
 
   Success = false;
 
-  constructor(private fb: FormBuilder, private Route: Router, private Services: MarketService, private avRout: ActivatedRoute) {
+  constructor(  private Route: Router, private Services: MarketService, private avRout: ActivatedRoute) {
 
 
    }
 
 
   ngOnInit(): void {
-
+  
+   
  this.GetSinglemarket();
 
   }
@@ -36,8 +38,9 @@ export class ViewMarketComponent implements OnInit {
     const paramid = 'id';
     if (this.avRout.snapshot.params[paramid])
     {this.MktId = this.avRout.snapshot.params[paramid]; }
+
     this.Services.GetMarketById(this.MktId).subscribe(
-      data => {  this.Markets = data;
+      data => {  this.Markets = data; 
 
                                                     }
 );

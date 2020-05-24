@@ -81,8 +81,6 @@ else{
     var RegDate =  new  Date();
     var Role = "User";
 
-   
-
              bcrypt.hash(Password, 10, function(err, hash) {
                 // Store hash in your password DB.
                 var User = {Email:req.body.Email, Password:hash,
@@ -91,7 +89,6 @@ else{
                      Phone :req.body.PhoneNumber,
                       UserName:req.body.UserName,
                         FullName :req.body.FullName}
-
 
                         var Sql = "INSERT INTO Users SET ? ";
                         DbCon.query(Sql,User,(err, Result)=>{

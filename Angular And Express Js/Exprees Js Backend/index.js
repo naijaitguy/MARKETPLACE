@@ -64,7 +64,7 @@ App.post('/Api/Identity/GetUserByUserName', IdentityRoute.GetUserByUserName);
 
           ///-------Market Route --------------////////////////////
 
-          App.get('/Api/Market/GetAllMarket',  MarketRoute.GetAllMarket);
+          App.get('/Api/Market/GetAllMarket', Helper.Authorization(), MarketRoute.GetAllMarket);
           App.get('/Api/Market/GetMarketById/:id', Helper.Authorization(), MarketRoute.GetMarketById);
           App.put('/Api/Market/UpdateMarket/:id', Helper.Authorization("Admin"), MarketRoute.UpdateMarket);
           App.post('/Api/Market/AddMarket', Helper.Authorization("Admin"), MarketRoute.AddMarket);
@@ -78,7 +78,7 @@ App.post('/Api/Identity/GetUserByUserName', IdentityRoute.GetUserByUserName);
               res.status(404).json(err);
               return next(err);
             }
-            res.json({ fileUrl: 'http://localhost:4000/image/' + req.file.filename });
+            res.json({ dbPath: 'http://localhost:4000/image/' + req.file.filename });
           });
           
 

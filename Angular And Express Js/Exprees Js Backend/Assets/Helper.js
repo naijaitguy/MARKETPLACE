@@ -24,6 +24,7 @@ exports.ValidateRegInput = ( data)=>{
       FullName: Joi.string().required().trim(),
 
       Password: Joi.string().required(),
+      ConfirmPassword: Joi.string().required(),
 
       UserName: Joi.string().required(),
 

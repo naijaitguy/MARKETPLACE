@@ -24,9 +24,9 @@ export class EditMarketComponent implements OnInit {
 
 this.FormData = this.fb.group({
 
-  Name: ['', Validators.required ],
+  MarketName: ['', Validators.required ],
   Discription: ['', Validators.required],
-  Catergory: ['', Validators.required],
+  Category: ['', Validators.required],
   Location: ['', Validators.required],
 });
 
@@ -66,10 +66,10 @@ this.Services.UpdateMarket(this.MktId,this.FormData.value)
     this.Services.GetMarketById(this.MktId).subscribe(
       data => {  this.Markets = data;
 
-                 this.FormData.controls.Name.setValue(data.Name);
-                 this.FormData.controls.Discription.setValue(data.Discription);
+                 this.FormData.controls.MarketName.setValue(data[0].Name);
+                 this.FormData.controls.Discription.setValue(data[0].Discription);
 
-                 this.FormData.controls.Location.setValue(data.Location);
+                 this.FormData.controls.Location.setValue(data[0].Location);
                                                     }
 );
 

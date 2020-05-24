@@ -89,7 +89,6 @@ export class CreateMarketComponent implements OnInit {
       getimage1(){
         this.image1path = this.response1.dbPath;
 
-
         this.upload2 = true;
 
       }
@@ -113,13 +112,13 @@ export class CreateMarketComponent implements OnInit {
 
         const NewMarket = {
 
-          Name: this.f.MarketName.value,
+          MarketName: this.f.MarketName.value,
            Discription: this.f.Discription.value,
            Location: this.f.Location.value,
             Image1: this.image1path,
             Image2: this.image2path,
             Image3: this.image3path,
-            Catergory: this.f.Category.value
+            Category: this.f.Category.value
         };
 
         this.Services.AddMarket(NewMarket).subscribe(
