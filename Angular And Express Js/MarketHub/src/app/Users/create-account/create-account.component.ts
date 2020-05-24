@@ -30,7 +30,7 @@ export class CreateAccountComponent implements OnInit {
   this.FormData = this.fb.group({
   Email: ['', [Validators.compose([Validators.required, Validators.pattern(this.emailPattern)])]],
   Password: ['' , [Validators.compose([Validators.required, Validators.minLength(6)])]],
-  UserName: ['', [Validators.compose([Validators.required, Validators.minLength(3)]), Validators.pattern(this.unamePattern)]],
+  UserName: ['', [Validators.compose([Validators.required, Validators.minLength(3)])]],
   FullName: ['', [Validators.compose([Validators.required])]],
   PhoneNumber: ['', [Validators.compose([Validators.required, Validators.pattern(this.mobnumPattern)] )]],
   Address: ['' , [Validators.compose([Validators.required])]],
@@ -47,7 +47,7 @@ export class CreateAccountComponent implements OnInit {
 
   ConfirmEmail(){
 
-    if (this.f.Password.value !== this.f.Confirm_Password.value){this.EmailError = true; }
+    if (this.f.Password.value !== this.f.ConfirmPassword.value){this.EmailError = true; }
 
   }
 
@@ -60,7 +60,10 @@ export class CreateAccountComponent implements OnInit {
     this.UsernameError = false;
     this.Success = false;
     this.Loading = false;
-    return this.Userservice.GetUserByUsername(this.FormData.value).subscribe(
+let UserName = {UserName: this.f.UserName.value};
+
+
+    return this.Userservice.GetUserByUsername(UserName).subscribe(
       data => {
                 this.UsernameError = true; return; },
 
@@ -70,34 +73,44 @@ export class CreateAccountComponent implements OnInit {
 
   FindEmail(){
 
-    return this.Userservice.GetUserBYEmail(this.FormData.value).subscribe(
+    let UserEmail = {Email: this.f.Email.value};
+    return this.Userservice.GetUserBYEmail(UserEmail).subscribe(
       data => {  this.EmailError = true; return; },
-      error => { this.FindPhone(); });
+      error => { this.AddUser();  });
 
   }
 
-  FindPhone(){
+  user(){
 
-    return  this.Userservice.GetUserByPhone(this.FormData.value).subscribe(
-      data => {  this.PhoneError = true; return; },
-       error => {this.AddUser();  });
+    const User =
+    {Email: this.f.Email,
+      Password: this.f.Password,
+
+     Address: this.f.Address,
+      PhoneNumber: this.f.PhoneNumber,
+       UserName: this.f.UserName,
+         FullName : this.f.FullName};
+
+
+         return User;
 
   }
 
     ProcessForm(){
       this.Submitted = true;
-      
+
       if (this.f.Password.value !== this.f.ConfirmPassword.value){  this.PwdError = true; return false; } else{
       if (this.FormData.invalid){  return false;  }
 
       this.Loading = true;
       this.FindUserName();
-      
+
     }
   }
   AddUser(){
 
-    this.Userservice.RegisterUser(this.FormData.value).subscribe(
+
+    this.Userservice.RegisterUser(this.user()).subscribe(
      data =>  {this.Success = true; },
      error => { this.Error = true; }
 

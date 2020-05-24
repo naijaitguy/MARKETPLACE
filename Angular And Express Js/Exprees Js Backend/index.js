@@ -56,17 +56,18 @@ App.get('/Api/Identity/GetUserById/:id', Helper.Authorization(), IdentityRoute.G
 App.post('/Api/Identity/RegisterUser',IdentityRoute.RegisterUser);
 App.post('/Api/Identity/RegisterUserAdmin', Helper.Authorization("Admin"), IdentityRoute.RegisterUserAdmin);
 App.post('/Api/Identity/AuthenticateUser',IdentityRoute.AuthenticateUser);
-App.post('/Api/Identity/GetUserByEmail',  Helper.Authorization(), IdentityRoute.GetUserByEmail);
+App.post('/Api/Identity/GetUserByEmail',   IdentityRoute.GetUserByEmail);
 
-App.post('/Api/Identity/GetUserByUserName', Helper.Authorization(),IdentityRoute.GetUserByUserName);
+App.post('/Api/Identity/GetUserByUserName', IdentityRoute.GetUserByUserName);
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-          ///-------Admin Route --------------////////////////////
+          ///-------Market Route --------------////////////////////
 
-          App.get('/Api/Market/GetAllMarket', Helper.Authorization(),  MarketRoute.GetAllMarket);
+          App.get('/Api/Market/GetAllMarket',  MarketRoute.GetAllMarket);
           App.get('/Api/Market/GetMarketById/:id', Helper.Authorization(), MarketRoute.GetMarketById);
           App.put('/Api/Market/UpdateMarket/:id', Helper.Authorization("Admin"), MarketRoute.UpdateMarket);
+          App.post('/Api/Market/AddMarket', Helper.Authorization("Admin"), MarketRoute.AddMarket);
           App.delete('/Api/Market/DeleteMarket/:id', Helper.Authorization("Admin"), MarketRoute.DeleteMarket);
           App.post('/Api/Market/GetMarketByLocation', Helper.Authorization(),  MarketRoute.GetMarketByLocation);
           App.post('/Api/Market/GetMarketByCategory',Helper.Authorization(),  MarketRoute.GetMarketByCategory);
@@ -104,6 +105,6 @@ App.put('*', function(req, res){ res.status(404).json("404 Not found ")})
 App.delete('*', function(req, res){ res.status(404).json("404 Not found ")})
 
 //////////////////custome 4040--------------
-App.listen(2083, (err) =>
+App.listen(4000, (err) =>
 { if (err) { console.log('server failed ')}
- else{console.log(' SERVER IS OPERATIONAL on Port 2083....')} });
+ else{console.log(' SERVER IS OPERATIONAL on Port 4000')} });

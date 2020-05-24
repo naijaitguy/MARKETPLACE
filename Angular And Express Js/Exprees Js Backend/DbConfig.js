@@ -4,12 +4,12 @@ const DbCon = connection.createConnection({
 
     host: 'localhost',
     user: 'root',
-    password : '',
+    password : '', 
     database : 'MarketHub'
 });
 
 DbCon.connect( function(err){  
-    if (err){ console.log("could not connect to db");
+    if (err){ console.log("could not connect to db"); 
     
 }
  else{

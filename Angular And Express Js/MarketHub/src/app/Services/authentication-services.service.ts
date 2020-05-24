@@ -17,15 +17,16 @@ export class AuthenticationServicesService {
   /////// get  all users
 ///////////////////////////////////////
 
- GetUserBYEmail(UserModel){
+ GetUserBYEmail(UserEmail){
 
-return this.Http.post(environment.ApiUrl + 'Identity/FindEmail', UserModel)
+return this.Http.post(environment.ApiUrl + 'Identity/GetUserByEmail', UserEmail)
 .pipe(retry(1), catchError(this.errorHandle));
 
  }
 
- GetUserByUsername(UserModel){
-  return this.Http.post(environment.ApiUrl + 'Identity/FindUserName' , UserModel) 
+ GetUserByUsername(UserName){
+  
+return this.Http.post(environment.ApiUrl + 'Identity/getUserByUserName' , UserName) 
   .pipe(retry(1), catchError(this.errorHandle));
  }
 
@@ -40,7 +41,7 @@ return this.Http.post(environment.ApiUrl + 'Identity/FindEmail', UserModel)
   ////// Add New User
 
   RegisterUser(UserModel) {
-return this.Http.post<UserModel>(environment.ApiUrl + 'Identity/CreateAccount', UserModel)
+return this.Http.post<UserModel>(environment.ApiUrl + 'Identity/RegisterUser', UserModel)
 .pipe(retry(1), catchError(this.errorHandle));
 
   }

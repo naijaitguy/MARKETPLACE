@@ -25,7 +25,7 @@ import { UserGaurd } from './_HELPER/UserGaurd';
 const routes: Routes = [
   {path: '', component: AuthenticationComponent, pathMatch: 'full'},
   {path : 'User' , component: AuthenticationComponent},
-  {path : 'User/CreateAccount' , component: CreateAccountComponent, canActivate: [AuthGaurd ]},
+  {path : 'User/CreateAccount' , component: CreateAccountComponent},
   {path : 'User/Market/view/:id' , component: ViewComponent, canActivate: [AuthGaurd ]},
   {path : 'Admin' , component: AdminAuthenicationComponent},
   {path : 'Contact' , component: ContactComponent, canActivate: [AuthGaurd ]},

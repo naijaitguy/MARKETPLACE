@@ -96,7 +96,7 @@ else{
                         var Sql = "INSERT INTO Users SET ? ";
                         DbCon.query(Sql,User,(err, Result)=>{
                     
-                            if(err){ res.status(403).json({mgs:"failed to create account"})}
+                            if(err){  console.log(err); res.status(403).json({mgs:"failed to create account"})}
                             else{
                                 res.status(200).json({mgs:"Registeration successful"})
                             }

@@ -72,7 +72,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1">@</span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Enter Your User Name " aria-label="UserName" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" formControlName="UserName" placeholder="Enter Your User Name " aria-label="UserName" aria-describedby="basic-addon1">
                       </div>
                       
                     </div>
@@ -80,7 +80,7 @@
                     <div *ngIf="Submitted && f.UserName.errors" class="alert alert-danger">
                        <span *ngIf="f.UserName.errors.required">  User Name Is required </span>
                        <span *ngIf="f.UserName.errors.minlength">  UserName Must be More than 3 Character  </span>
-                       <span *ngIf="f.UserName.errors.pattern">  UserName Must be Number And Letter only  </span>
+                      
                     </div>
       
                     <div class=" form-group">
@@ -101,10 +101,10 @@
                       </div>
         
                       <span *ngIf="  Submitted && PwdError"  class="alert alert-danger">  Password Do Not Match </span>
-                      <div *ngIf="Submitted && f.Confirm_Password.errors" class="alert alert-danger">
+                      <div *ngIf="Submitted && f.ConfirmPassword.errors" class="alert alert-danger">
                         
-                        <span *ngIf="f.Confirm_Password.errors.required">  Confirm Password Is required </span>
-                        <span *ngIf="f.Confirm_Password.errors.minlength">  Confirm Password Must be More than 6 Character </span>
+                        <span *ngIf="f.ConfirmPassword.errors.required">  Confirm Password Is required </span>
+                        <span *ngIf="f.ConfirmPassword.errors.minlength">  Confirm Password Must be More than 6 Character </span>
                      </div>
                       <div class=" form-group" style="margin-top: 50px;">
                         
