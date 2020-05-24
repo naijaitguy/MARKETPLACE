@@ -15,43 +15,43 @@
     <table class="table  table-striped table-bordered ">
 
 <tr>
-<th> MARKET NAME </th> <td>    {{Markets.Name}}</td>
+<th> MARKET NAME </th> <td>    {{Markets[0].Name}}</td>
 
 </tr>
 
 
 
 <tr>
-    <th> MARKET DISCRIPTION </th> <td>    {{Markets.Discription}}</td>
+    <th> MARKET DISCRIPTION </th> <td>    {{Markets[0].Discription}}</td>
     
     </tr>
 
 
     <tr>
-        <th> FOOD CATEGORY</th> <td>    {{Markets.Catergory}}</td>
+        <th> FOOD CATEGORY</th> <td>    {{Markets[0].Category}}</td>
         
         </tr>
 
         <tr>
-            <th> MARKET LOCATION </th> <td>    {{Markets.Location}}</td>
+            <th> MARKET LOCATION </th> <td>    {{Markets[0].Location}}</td>
             
             </tr>
 
         <tr>
-            <th> MARKET IMAGE 1</th> <td>  <img src="https://localhost:44330/{{Markets.Image1}}" class="img-respnsive" width="100px" height="100px" >    </td>
+            <th> MARKET IMAGE 1</th> <td>  <img src="{{Markets[0].Image1}}" class="img-respnsive" width="100px" height="100px" >    </td>
             
             </tr>
 
 
             
         <tr>
-            <th> MARKET IMAGE 2</th> <td>    <img src="https://localhost:44330/{{Markets.Image2}}" class="img-respnsive" width="100px" height="100px" >  </td>
+            <th> MARKET IMAGE 2</th> <td>    <img src="{{Markets[0].Image2}}" class="img-respnsive" width="100px" height="100px" >  </td>
             
             </tr>
 
             
         <tr>
-            <th> MARKET IMAGE 3</th> <td>    <img src="https://localhost:44330/{{Markets.Image3}}" class="img-respnsive" width="100px" height="100px" >  </td>
+            <th> MARKET IMAGE 3</th> <td>    <img src="{{Markets[0].Image3}}" class="img-respnsive" width="100px" height="100px" >  </td>
             
             </tr>
     </table>
