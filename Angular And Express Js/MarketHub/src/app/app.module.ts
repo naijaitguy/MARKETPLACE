@@ -38,6 +38,7 @@ import { SearchNameComponent } from './Users/Search/search-name/search-name.comp
 import { SearchCategoryComponent } from './Users/Search/search-category/search-category.component';
 import { SearchLocationComponent } from './Users/Search/search-location/search-location.component';
 import { RefreshComponent } from './Users/refresh/refresh.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { RefreshComponent } from './Users/refresh/refresh.component';
     SearchNameComponent,
     SearchCategoryComponent,
     SearchLocationComponent,
-    RefreshComponent
+    RefreshComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

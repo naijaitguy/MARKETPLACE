@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3A5CPioIkmi4IFIiohZTh4ajugL2dWGcBCmtpL0u7/4eJkKPdJMu5beGMZxXQf935QaIDiYlF/GPuwsocqUsaA==",
+  "dgSpecHash": "h21YgP66kXPDzOrAN2SZIV6lHrKEJ2ufIIn0TbaJKiX63NO3RZf3+7WEh2jey+fP3iMyn5TtE9OrjAyUpTTwJA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\BABATUNDE\\Desktop\\my projects\\MARKETPLACE\\SERVER SIDE\\MarketHub\\MarketHub.csproj",
+  "projectFilePath": "C:\\Users\\BABATUNDE\\Desktop\\my projects\\MARKETPLACE\\Angular And .NetCore\\SERVER SIDE\\MarketHub\\MarketHub.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\BABATUNDE\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.4\\microsoft.aspnetcore.authentication.jwtbearer.3.1.4.nupkg.sha512",
     "C:\\Users\\BABATUNDE\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.3\\microsoft.aspnetcore.cryptography.internal.3.1.3.nupkg.sha512",

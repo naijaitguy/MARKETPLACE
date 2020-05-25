@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\BABATUNDE\\Desktop\\my projects\\MARKETPLACE\\SERVER SIDE\\MarketHub\\MarketHub.csproj": {}
+    "C:\\Users\\BABATUNDE\\Desktop\\my projects\\MARKETPLACE\\Angular And .NetCore\\SERVER SIDE\\MarketHub\\MarketHub.csproj": {}
   },
   "projects": {
-    "C:\\Users\\BABATUNDE\\Desktop\\my projects\\MARKETPLACE\\SERVER SIDE\\MarketHub\\MarketHub.csproj": {
+    "C:\\Users\\BABATUNDE\\Desktop\\my projects\\MARKETPLACE\\Angular And .NetCore\\SERVER SIDE\\MarketHub\\MarketHub.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\BABATUNDE\\Desktop\\my projects\\MARKETPLACE\\SERVER SIDE\\MarketHub\\MarketHub.csproj",
+        "projectUniqueName": "C:\\Users\\BABATUNDE\\Desktop\\my projects\\MARKETPLACE\\Angular And .NetCore\\SERVER SIDE\\MarketHub\\MarketHub.csproj",
         "projectName": "MarketHub",
-        "projectPath": "C:\\Users\\BABATUNDE\\Desktop\\my projects\\MARKETPLACE\\SERVER SIDE\\MarketHub\\MarketHub.csproj",
+        "projectPath": "C:\\Users\\BABATUNDE\\Desktop\\my projects\\MARKETPLACE\\Angular And .NetCore\\SERVER SIDE\\MarketHub\\MarketHub.csproj",
         "packagesPath": "C:\\Users\\BABATUNDE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\BABATUNDE\\Desktop\\my projects\\MARKETPLACE\\SERVER SIDE\\MarketHub\\obj\\",
+        "outputPath": "C:\\Users\\BABATUNDE\\Desktop\\my projects\\MARKETPLACE\\Angular And .NetCore\\SERVER SIDE\\MarketHub\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
