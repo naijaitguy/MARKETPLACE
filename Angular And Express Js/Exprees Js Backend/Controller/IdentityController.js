@@ -1,20 +1,9 @@
-const express = require('express');
-const App = express();
 const jwt = require('jsonwebtoken');
 const DbCon = require('../Dbconfig')
-//const route = express()
-const bodyparser = require('body-parser');
-const cryptr = require('cryptr');
-const path = require('path');
 const joi = require('joi');
-//const session = require('express-session');
 const Helper = require('../Assets/Helper');
 const bcrypt = require('bcrypt');
 const config = require('../Config.json');
-
-
-
-
 
 exports.AuthenticateUser = (req, res)=>{
 
@@ -71,7 +60,6 @@ exports.AuthenticateUser = (req, res)=>{
 };
 
 
-
 exports.RegisterUser = (req, res)=>{
 
 joi.validate(req.body,Helper.ValidateRegInput(req.body),(err, result)=>{
@@ -115,7 +103,6 @@ else{
   
 
 };
-
 
 
 exports.RegisterUserAdmin = (req, res)=>{
@@ -165,8 +152,6 @@ exports.RegisterUserAdmin = (req, res)=>{
     
     };
     
-    
-
 
 exports.GetAllUser = (req, res) =>{ 
 

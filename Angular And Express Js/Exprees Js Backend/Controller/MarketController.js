@@ -1,18 +1,7 @@
 const express = require('express');
-const App = express();
-const jwt = require('jsonwebtoken');
 const DbCon = require('../Dbconfig')
-//const route = express()
-const bodyparser = require('body-parser');
-const cryptr = require('cryptr');
-const path = require('path');
 const joi = require('joi');
-//const session = require('express-session');
 const Helper = require('../Assets/Helper');
-const bcrypt = require('bcrypt');
-const config = require('../Config.json');
-
-
 
 exports.GetAllMarket = (req,res)=>{
 
@@ -271,4 +260,13 @@ exports.AddMarket = (req,res)=>{
 
 }
 
-exports.Upload = ()=>{}
+exports.Upload = (req, res, next)=>{
+
+    console.log(req.file);
+    if(!req.file) {
+      res.status(404).json(err);
+      return next(err);
+    }
+    res.json({ dbPath: 'http://localhost:4000/image/' + req.file.filename });
+
+}
