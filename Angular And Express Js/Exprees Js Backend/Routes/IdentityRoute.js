@@ -5,7 +5,7 @@ const IdentityController = require('../Controller/IdentityController');
 
 //////////////////////////////Identity Route ------------------------//////////////////
 
-Route.get('/GetAllUsers', Helper.Authorization("Admin"), IdentityController.GetAllUser);
+Route.get('/GetAllUsers', IdentityController.GetAllUser);
 Route.get('/GetUserById/:id', Helper.Authorization(), IdentityController.GetUserByID);
 Route.post('/RegisterUser',IdentityController.RegisterUser);
 Route.post('/RegisterUserAdmin', Helper.Authorization("Admin"), IdentityController.RegisterUserAdmin);

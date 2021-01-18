@@ -40,7 +40,7 @@ exports.AuthenticateUser = (req, res)=>{
             
             
             }
-         else { res.status(404).json({mgs:"Invalid Login"}); }
+         else { res.status(404).json({mgs:"Invalid Login Credentials"}); }
 
          
         // result == true
@@ -49,7 +49,7 @@ exports.AuthenticateUser = (req, res)=>{
 
    }
 
-   else{ res.status(403).json({mgs:"User not found"});}
+   else{ res.status(403).json({mgs:"Invalid Login Credentials"});}
 
                 }
             });

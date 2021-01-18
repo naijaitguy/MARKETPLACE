@@ -1,9 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\BABATUNDE\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\BABATUNDE\\.nuget\\packages",
-      "C:\\Microsoft\\Xamarin\\NuGet"
+      "C:\\Users\\Fintrak Software\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Fintrak Software\\.nuget\\packages"
     ]
   }
 }
